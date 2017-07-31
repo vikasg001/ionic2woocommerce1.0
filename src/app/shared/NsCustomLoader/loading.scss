@@ -1,0 +1,139 @@
+ns-custom-loader {
+  .ns-custom-loader {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: $z-index-overlay;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    contain: strict;
+  }
+  .loading-wrapper {
+    z-index: 10;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+ns-custom-loader.loading-ios .loading-wrapper {
+  padding: 24px 34px;
+  max-width: 270px;
+  max-height: 90%;
+  border-radius: 8px;
+  color: #000;
+  background: #f8f8f8;
+}
+
+ns-custom-loader.loading-ios .loading-content {
+  font-weight: bold;
+}
+
+ns-custom-loader.loading-ios .loading-spinner + .loading-content {
+  margin-left: 16px;
+}
+
+ns-custom-loader.loading-ios .spinner-ios line,
+ns-custom-loader.loading-ios .spinner-ios-small line {
+  stroke: #69717d;
+}
+
+ns-custom-loader.loading-ios .spinner-bubbles circle {
+  fill: #69717d;
+}
+
+ns-custom-loader.loading-ios .spinner-circles circle {
+  fill: #69717d;
+}
+
+ns-custom-loader.loading-ios .spinner-crescent circle {
+  stroke: #69717d;
+}
+
+ns-custom-loader.loading-ios .spinner-dots circle {
+  fill: #69717d;
+}
+
+ns-custom-loader.loading-md .loading-wrapper {
+  padding: 24px;
+  max-width: 280px;
+  max-height: 90%;
+  border-radius: 2px;
+  color: rgba(0, 0, 0, 0.5);
+  background: #fafafa;
+  box-shadow: 0 16px 20px rgba(0, 0, 0, 0.4);
+}
+
+ns-custom-loader.loading-md .loading-spinner + .loading-content {
+  margin-left: 16px;
+}
+
+ns-custom-loader.loading-md .spinner-ios line,
+ns-custom-loader.loading-md .spinner-ios-small line {
+  stroke: #003b7d;
+}
+
+ns-custom-loader.loading-md .spinner-bubbles circle {
+  fill: #003b7d;
+}
+
+ns-custom-loader.loading-md .spinner-circles circle {
+  fill: #003b7d;
+}
+
+ns-custom-loader.loading-md .spinner-crescent circle {
+  stroke: #003b7d;
+}
+
+ns-custom-loader.loading-md .spinner-dots circle {
+  fill: #003b7d;
+}
+
+ns-custom-loader.loading-wp .loading-wrapper {
+  padding: 20px;
+  max-width: 280px;
+  max-height: 90%;
+  border-radius: 2px;
+  color: #fff;
+  background: #000;
+}
+
+ns-custom-loader.loading-wp .loading-spinner + .loading-content {
+  margin-left: 16px;
+}
+
+ns-custom-loader.loading-wp .spinner-ios line,
+ns-custom-loader.loading-wp .spinner-ios-small line {
+  stroke: #fff;
+}
+
+ns-custom-loader.loading-wp .spinner-bubbles circle {
+  fill: #fff;
+}
+
+ns-custom-loader.loading-wp .spinner-circles circle {
+  fill: #fff;
+}
+
+ns-custom-loader.loading-wp .spinner-crescent circle {
+  stroke: #fff;
+}
+
+ns-custom-loader.loading-wp .spinner-dots circle {
+  fill: #fff;
+}
+
+ns-custom-loader.loading-md ion-backdrop {
+  opacity: 0.5;
+}
+
+ns-custom-loader.loading-ios ion-backdrop {
+  opacity: 0.3;
+}

@@ -1,0 +1,22 @@
+page-productlist {
+
+  .mainPrice {
+    color: map_get($colors,'primary');
+    text-decoration: line-through;
+  }
+  .disPrice {
+    color: map_get($colors,'danger');
+  }
+  .ion-title{
+    width: 50%;
+    float: left;
+  }
+
+  .cardClass{
+    min-height: 215px;
+  }
+  .itemActive{
+    color: #ff0000;
+  }
+
+}

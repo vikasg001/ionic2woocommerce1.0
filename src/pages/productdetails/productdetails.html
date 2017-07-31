@@ -1,0 +1,73 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Product Details</ion-title>
+    <ion-buttons end>
+      <page-minicart></page-minicart>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+
+  <ion-slides pager>
+    <ion-slide *ngFor="let slide of slides">
+      <img [src]="slide.image" class="slide-image"/>
+    </ion-slide>
+  </ion-slides>
+
+  <ion-list>
+    <ion-item>
+      <h2 class="product-title">{{productDetails.title}}</h2>
+    </ion-item>
+    <ion-item>
+      Categories: <span class="cateClass">{{productDetails.categories.toString()}}</span>
+    </ion-item>
+    <ion-item>
+      <h3>Qty: 1</h3>
+    </ion-item>
+    <ion-item>
+      <span item-left class="mainPrice" *ngIf="productDetails.sale_price">{{currency }} {{ productDetails.regular_price}}</span>
+      <span item-right class="disPrice" *ngIf="!productDetails.sale_price">{{currency }} {{ productDetails.regular_price}}</span>
+      <span item-right class="disPrice"
+            *ngIf="productDetails.sale_price">{{currency }} {{productDetails.sale_price}}</span>
+    </ion-item>
+
+    <ion-item>
+      <rating score="{{productDetails.average_rating}}" max="5"></rating>
+    </ion-item>
+
+    <ion-list-header>
+      Description
+    </ion-list-header>
+    <ion-item text-wrap>
+      <p innerHtml="{{productDetails.description}}"></p>
+    </ion-item>
+    <ion-list-header>
+      Specification
+    </ion-list-header>
+    <ion-item text-wrap>
+      <p innerHtml="{{productDetails.description}}"></p>
+    </ion-item>
+    <ion-list-header>
+      Features
+    </ion-list-header>
+    <ion-item text-wrap>
+      <p innerHtml="{{productDetails.description}}"></p>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<ion-footer>
+
+  <button ion-button (click)="buyToCart()" color="danger" large class="cartButton">
+    Buy Now
+  </button>
+  <button ion-button (click)="addToCart()" large class="cartButton">
+    Add to Cart
+  </button>
+
+</ion-footer>

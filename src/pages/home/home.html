@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-buttons end>
+      <page-minicart></page-minicart>
+    </ion-buttons>
+  </ion-navbar>
+  <ion-searchbar></ion-searchbar>
+</ion-header>
+
+<ion-content>
+  <ion-slides pager>
+    <ion-slide *ngFor="let slide of slides">
+      <img [src]="slide.image" class="slide-image"/>
+      <!--<h2 class="slide-title" [innerHTML]="slide.title"></h2>
+      <p [innerHTML]="slide.description"></p> https://codecanyon.net/item/opencart-mobile-app/19508681-->
+    </ion-slide>
+  </ion-slides>
+
+  <ion-row class="card-background-page" no-padding>
+    <ion-col col-4 no-padding *ngFor="let category of categorys">
+      <ion-card no-padding (click)="showProductList(category)">
+        <img src="{{category.image}}"/>
+        <div class="card-subtitle">{{category.title}}</div>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+  <ion-row wrap>
+    <ion-list-header>
+      Product
+    </ion-list-header>
+    <ion-col col-6 *ngFor="let productList of productLists" item-left>
+      <ion-card (click)="showProductDetail(productList)" class="cardClass">
+        <ion-thumbnail item-start>
+          <img src='{{productList.image || "assets/img/card-04.png"}}'>
+        </ion-thumbnail>
+        <h2>{{productList.title}}</h2>
+        <p>
+          <rating score="{{productList.average_rating}}" max="5"></rating>
+        </p>
+        <p class="mainPrice" *ngIf="productList.sale_price">{{currency }} {{ productList.regular_price}}</p>
+        <p class="disPrice" *ngIf="!productList.sale_price">{{currency }} {{ productList.regular_price}}</p>
+        <p class="disPrice" *ngIf="productList.sale_price">{{currency }} {{productList.sale_price}}</p>
+
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-content>

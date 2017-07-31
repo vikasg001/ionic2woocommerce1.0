@@ -1,0 +1,50 @@
+page-productdetails {
+
+  ion-slides {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .slide-zoom {
+    height: 30%;
+  }
+
+  .slide-title {
+    margin-top: 2.8rem;
+  }
+
+  .slide-image {
+    max-height: 50%;
+    max-width: 100%;
+    height: 260px;
+  }
+.product-title{
+  font-size: 1.5em;
+  font-weight: bold;
+}
+  .mainPrice {
+    color: map_get($colors,'primary');
+    text-decoration: line-through;
+    font-size: 1.4em;
+  }
+  .disPrice {
+    color: map_get($colors,'danger');
+    font-size: 1.4em;
+  }
+
+  .cartButton {
+    overflow: hidden;
+    font-size: 1.4rem;
+    font-weight: 500;
+    text-transform: capitalize;
+    color: #fff;
+    width: 49%;
+    float: left;
+  }
+  .cateClass{
+    color: #ff0000;
+  }
+
+
+}

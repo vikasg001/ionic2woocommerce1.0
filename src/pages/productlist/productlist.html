@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Product List</ion-title>
+    <ion-buttons end>
+      <page-minicart></page-minicart>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="outer-content">
+
+  <ion-list-header>
+    Products
+    <ion-icon name="list-box" item-right (click)="viewChange('List')" [ngClass]="{'itemActive':(listView=='List')}"></ion-icon>
+    <ion-icon name="grid" item-right (click)="viewChange('Grid')" [ngClass]="{'itemActive':(listView=='Grid')}"></ion-icon>
+  </ion-list-header>
+
+
+
+  <ion-list *ngIf="listView=='List'">
+
+    <ion-item *ngFor="let productList of productLists | productByCate: searchTerm"
+              (click)="showProductDetail(productList)">
+
+      <ion-thumbnail item-start>
+        <img src='{{productList.image || "assets/img/card-04.png"}}'>
+      </ion-thumbnail>
+      <h2>{{productList.title}}</h2>
+      <p>
+        <rating score="{{productList.average_rating}}" max="5"></rating>
+      </p>
+      <p class="mainPrice" *ngIf="productList.sale_price">{{currency }} {{ productList.regular_price}}</p>
+      <p class="disPrice" *ngIf="!productList.sale_price">{{currency }} {{ productList.regular_price}}</p>
+      <p class="disPrice" *ngIf="productList.sale_price">{{currency }} {{productList.sale_price}}</p>
+    </ion-item>
+  </ion-list>
+
+  <ion-row wrap *ngIf="listView=='Grid'">
+    <ion-col col-6 *ngFor="let productList of productLists | productByCate: searchTerm">
+      <ion-card (click)="showProductDetail(productList)" class="cardClass">
+        <ion-thumbnail item-start>
+          <img src='{{productList.image || "assets/img/card-04.png"}}'>
+        </ion-thumbnail>
+        <h2>{{productList.title}}</h2>
+        <p>
+          <rating score="{{productList.average_rating}}" max="5"></rating>
+        </p>
+        <p class="mainPrice" *ngIf="productList.sale_price">{{currency }} {{ productList.regular_price}}</p>
+        <p class="disPrice" *ngIf="!productList.sale_price">{{currency }} {{ productList.regular_price}}</p>
+        <p class="disPrice" *ngIf="productList.sale_price">{{currency }} {{productList.sale_price}}</p>
+
+      </ion-card>
+    </ion-col>
+  </ion-row>
+
+  <ion-list>
+    <ion-item *ngIf="(productLists | productByCate: searchTerm).length==0 ">
+      <h2>No Record Found.</h2>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

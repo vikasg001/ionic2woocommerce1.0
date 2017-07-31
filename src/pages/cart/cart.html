@@ -1,0 +1,74 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Cart</ion-title>
+    <ion-buttons end>
+      <page-minicart></page-minicart>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-list>
+    <ion-row item-content *ngFor="let product of productsList">
+      <ion-col col-3>
+        <ion-thumbnail item-start>
+          <img src="{{product.image}}">
+        </ion-thumbnail>
+      </ion-col>
+      <ion-col col-6 class="cartData">
+        <h3>{{product.title}}</h3>
+        <p class="unitPrice">Unit Price : $18</p>
+        <p class="qty">Qty: 1</p>
+        <p class="totalPrice">Total: 18</p>
+      </ion-col>
+      <ion-col col-3>
+        <button ion-button icon-only round outline small>
+          <ion-icon name="add"></ion-icon>
+        </button>
+
+        <button ion-button icon-only round outline small>
+          <ion-icon name="remove"></ion-icon>
+        </button>
+
+        <button ion-button icon-only round outline small>
+          <ion-icon name="trash"></ion-icon>
+        </button>
+
+      </ion-col>
+
+    </ion-row>
+  </ion-list>
+  <ion-list>
+    <ion-row>
+      <ion-col col-6>Sub Total</ion-col>
+      <ion-col col-6 item-right>$56</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-6>Total</ion-col>
+      <ion-col col-6 item-right>$56</ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-12>
+        <ion-input type="text" placeholder="Enter Here Coupon Code"></ion-input>
+      </ion-col>
+      <ion-col col-12>
+        <button ion-button full color="secondary">
+          Apply Coupon
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-list>
+</ion-content>
+
+<ion-footer>
+
+  <button ion-button color="danger" large full (click)="showCheckout()">
+    Checkout
+  </button>
+
+</ion-footer>
