@@ -10,7 +10,7 @@ export class WooClass {
 
   getWooConfig() {
     return new WooCommerceAPI({
-      url: 'http://vikharry91.co.nf', // Your store url (required)
+      url: '', // Your store url (required)
       // version: 'v3', // WooCommerce API version (optional)
       // verifySsl: true, // Use `false` when need test with self-signed certificates, default is `true` (optional)
       // encoding: 'utf8', // Encode, default is 'utf8' (optional)
